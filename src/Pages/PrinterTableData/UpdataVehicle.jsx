@@ -105,7 +105,7 @@ function UpdataVehicle() {
           `vehicle Card No  ${value.CardNo} has been Update successfully`,
           'success'
         )
-        navigate('/')
+        navigate("/Table");
       })
       .catch((err) => {
         console.log(err);
@@ -732,7 +732,7 @@ function UpdataVehicle() {
               <button
                 type="button"
                 className="border-0 px-3  savebtn py-2"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/Table")}
               >
                 {" "}
                 <ArrowCircleLeftOutlinedIcon className="me-2" />
