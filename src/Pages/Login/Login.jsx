@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import { DotLoader } from "react-spinners";
 import Swal from "sweetalert2";
 function Login() {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -11,7 +12,7 @@ function Login() {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [error, setError] = useState();
-    const [Loading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     // Password toggle handler
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
@@ -47,6 +48,24 @@ function Login() {
         <>
             <div className="main_div">
                 <div className="from_data rounded">
+                    {isLoading &&
+
+                        <div className='loading-spinner-background'
+                            style={{
+                                zIndex: 9999, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                                display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed'
+
+
+                            }}
+                        >
+                            <DotLoader
+                                size={45}
+                                color={"#FF693A"}
+                                // height={4}
+                                loading={isLoading}
+                            />
+                        </div>
+                    }
                     <div>
                         <center>
                             <h6 className="fw-bolder fs-3">Welcome</h6>

@@ -48,6 +48,12 @@
     justify-content: center;
 }
 
+.loginbtn:hover {
+    background: rgba(63, 124, 251, 0.8);
+    background: linear-gradient(90deg, rgba(252, 70, 107, 0.835171568627451) 21%, rgba(63, 124, 251, 0.9416141456582633) 84%);
+
+}
+
 .emailinput {
     /* border: 1px solid #e9e9e9; */
     /* background-color: #e9e9e9; */
@@ -126,6 +132,10 @@
         top: 50%;
         padding: 3rem;
         transform: translate(-50%, -50%);
+    }
+
+    .loginbtn {
+        width: 100% !important;
     }
 
     .showpassicon {
