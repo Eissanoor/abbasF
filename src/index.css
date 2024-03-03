@@ -165,6 +165,7 @@ code {
 .text_lable {
   font-size: 15px !important;
   word-wrap: break-word;
+  color: black;
 }
 
 .toperheading {
@@ -192,6 +193,7 @@ code {
 
   .text_lable {
     font-size: 12px !important;
+    color: black;
   }
 .bg-custom {
   background-color: #626262 !important;
