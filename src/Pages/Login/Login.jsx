@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
+import { DotLoader } from "react-spinners";
 import Swal from "sweetalert2";
 function Login() {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -11,7 +12,7 @@ function Login() {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     const [error, setError] = useState();
-    const [Loading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
     // Password toggle handler
     const togglePassword = () => {
         setPasswordShown(!passwordShown);
@@ -47,6 +48,24 @@ function Login() {
         <>
             <div className="main_div">
                 <div className="from_data rounded">
+                    {isLoading &&
+
+                        <div className='loading-spinner-background'
+                            style={{
+                                zIndex: 9999, position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                                display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed'
+
+
+                            }}
+                        >
+                            <DotLoader
+                                size={45}
+                                color={"#FF693A"}
+                                // height={4}
+                                loading={isLoading}
+                            />
+                        </div>
+                    }
                     <div>
                         <center>
                             <h6 className="fw-bolder fs-3">Welcome</h6>
@@ -54,13 +73,13 @@ function Login() {
                         </center>
                         <form className="modal-content w-100 " onSubmit={loginbutton}>
                             {/* Email section */}
-                            <div className="emailsection position-relative d-grid my-2">
+                            <div className="emailsection position-relative d-grid my-3">
                                 <label htmlFor="email" className="lablesection text-start mb-1">
                                     Email
                                 </label>
-                                <p className="position-absolute text-end emailicon">
+                                {/* <p className="position-absolute text-end emailicon">
                                     <MailOutlined />
-                                </p>
+                                </p> */}
                                 <input
                                     types="email"
                                     id="email"
@@ -68,28 +87,28 @@ function Login() {
                                     onChange={(e) => {
                                         setemail(e.target.value);
                                     }}
-                                    className="rounded emailinput py-2 ps-4 "
-                                    placeholder="example@gmail.com"
+                                    className="rounded emailinput py-2"
+                                    placeholder="Type your Username"
                                     required
                                 ></input>
                             </div>
 
                             {/* password section */}
-                            <div className="emailsection position-relative my-2 d-grid">
+                            <div className="emailsection position-relative my-3 d-grid">
                                 <label
                                     htmlFor="password"
                                     className="lablesection text-start my-1"
                                 >
                                     Password
                                 </label>
-                                <p className="position-absolute text-end   LockOutlinedicon">
+                                {/* <p className="position-absolute text-end   LockOutlinedicon">
                                     <LockOutlined />
-                                </p>
+                                </p> */}
                                 <input
                                     type={passwordShown ? "text" : "password"}
                                     id="password"
                                     className=" rounded mt-2 ps-4 emailinput py-2"
-                                    placeholder="*********"
+                                    placeholder="Type your Password"
                                     value={password}
                                     onChange={(e) => setpassword(e.target.value)}
                                     required
@@ -115,7 +134,7 @@ function Login() {
                                 Forget password?
                             </p>
                             {/* Button section */}
-                            <div className="emailsection mt-3 d-grid">
+                            <div className="emailsection mt-3 d-flex justify-content-center">
                                 <button
                                     className="loginbtn border-0 py-2 rounded text-white"
                                     type="submit"
