@@ -14,6 +14,12 @@ export const ShipmentRequestColumns = [
         headerClassName: 'header-red'
     },
     {
+        field: 'reference',
+        headerName: 'reference',
+        width: 150,
+        headerClassName: 'header-red'
+    },
+    {
         field: 'vehicltype',
         headerName: 'Vehical Type',
         width: 200,

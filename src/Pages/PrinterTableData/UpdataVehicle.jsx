@@ -22,7 +22,7 @@ function UpdataVehicle() {
     Datetime: '', Load: '', qrcode: "",
     Vehicledrive: '', EngineCapacity: '', PassengerCapacity: '',
     CarriageCapacity: '', VehicleBrandName: '', SpecificationStandardName: '',
-    VCCGenerationDate: '', DeclarationDate: '', OwnerCode: '', Vehiclemodel: '',
+    VCCGenerationDate: '', DeclarationDate: '', OwnerCode: '', Vehiclemodel: '',reference:''
   })
 
   const getapi = () => {
@@ -55,6 +55,7 @@ function UpdataVehicle() {
           DeclarationDate: res.data.data.DeclarationDate || "",
           OwnerCode: res.data.data.OwnerCode || "",
           Vehiclemodel: res.data.data.Vehiclemodel || "",
+          reference:res.data.data.reference || ""
         }));
 
       }).catch((err) => {
@@ -97,7 +98,8 @@ function UpdataVehicle() {
       "VCCGenerationDate": value.VCCGenerationDate,
       "DeclarationDate": value.DeclarationDate,
       "OwnerCode": value.OwnerCode,
-      "Vehiclemodel": value.Vehiclemodel
+      "Vehiclemodel": value.Vehiclemodel,
+      "reference":value.reference
     })
       .then((res) => {
         Swal.fire(
@@ -726,6 +728,29 @@ function UpdataVehicle() {
                     required
                   ></textarea>
                 </div>
+                <div className="col-sm-12 col-md-4 col-lg-4 col-xl-4  my-2">
+                  <div className="mb-3 text-start mt-4">
+                    <label
+                      htmlFor="reference"
+                      className="lablesection colorblack"
+                    >
+                      reference
+                    </label>
+                    <input
+                      className="form-control inputsection py-2"
+                      id="reference"
+                      type="text"
+                      value={value.reference}
+                      onChange={(e) => {
+                        setvalue((prevValue) => ({
+                          ...prevValue,
+                          reference: e.target.value,
+                        }));
+                      }}
+                    />
+                  </div>
+                </div>
+
               </div>
             </div>
             <div className="d-flex justify-content-between mt-5">

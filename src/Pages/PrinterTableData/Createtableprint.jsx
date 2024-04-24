@@ -23,6 +23,7 @@ function Createtableprint()
         VCCGenerationDate: new Date().toISOString().split('T')[0], DeclarationDate:new Date().toISOString().split('T')[0], OwnerCode: '',
         Datetime: new Date().toISOString().split('T')[0], Load: '',
         Vehiclemodel:'',
+        reference:''
     })
 
     const addtransaction = () =>
@@ -53,7 +54,8 @@ function Createtableprint()
                 VCCGenerationDate: value.VCCGenerationDate,
                 DeclarationDate: value.DeclarationDate,
                 OwnerCode: value.OwnerCode,
-                Vehiclemodel:value.Vehiclemodel
+                Vehiclemodel:value.Vehiclemodel,
+                reference:value.reference
             })
             .then((res) =>
             {
@@ -702,6 +704,31 @@ function Createtableprint()
                                         placeholder="Enter your Comments"
                                         required
                                     ></textarea>
+                                </div>
+                                <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 my-2">
+                                    <div className="mb-3 text-start">
+                                        <label
+                                            htmlFor="reference"
+                                            className="lablesection colorblack text-start mb-1"
+                                        >
+                                            reference
+                                        </label>
+
+                                        <input
+                                            className="form-control inputsection py-2"
+                                            id="VehicleBrandName"
+                                            placeholder="Enter reference"
+                                            type="text"
+                                            value={value.reference}
+                                            onChange={(e) =>
+                                            {
+                                                setvalue((prevValue) => ({
+                                                    ...prevValue,
+                                                    reference: e.target.value,
+                                                }));
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
